@@ -44,9 +44,10 @@ const exactlyRecommended = dogs.some(dog => dog.curFood === dog.recommendedFood)
 console.log("task 5: "+exactlyRecommended);
 
 // Task 6
-const okayAmount = dog =>{
-    dog.curFood > dog.recommendedFood * 0.9 && dog.curFood < dog.recommendedFood * 1.1;
-}
+const okayAmount = dog => {
+    return dog.curFood > dog.recommendedFood * 0.9 && dog.curFood < dog.recommendedFood * 1.1;
+  };
+  
 
 const eatingOkay = dogs.some(okayAmount);
 console.log("task 6: " +eatingOkay);
