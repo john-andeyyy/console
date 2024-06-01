@@ -8,7 +8,8 @@ const dogs = [
 // Task 1
 dogs.forEach(dog => {
     // add recommendedFood in each dog
-    dog.recommendedFood = Math.trunc(dog.weight ** 0.75 * 28);
+    dog.recommendedFood = Math.floor(dog.weight ** 0.75 * 28);
+    
 });
 
 
@@ -34,24 +35,25 @@ const ownersEatTooLittle = dogs
     .flatMap(dog => dog.owners);
 
 // Task 4
-console.log("task 4")
+console.log("task 4:")
 console.log(`${ownersEatTooMuch.join(' and ')}'s dogs eat too much!`);
 console.log(`${ownersEatTooLittle.join(' and ')}'s dogs eat too little!`);
 
 // Task 5
 const exactlyRecommended = dogs.some(dog => dog.curFood === dog.recommendedFood);
-console.log("task 5 "+exactlyRecommended);
+console.log("task 5: "+exactlyRecommended);
 
 // Task 6
-const okayAmount = dog =>
+const okayAmount = dog =>{
     dog.curFood > dog.recommendedFood * 0.9 && dog.curFood < dog.recommendedFood * 1.1;
+}
 
 const eatingOkay = dogs.some(okayAmount);
-console.log("task 6 " +eatingOkay);
+console.log("task 6: " +eatingOkay);
 
 // Task 7
 const dogsEatingOkay = dogs.filter(okayAmount);
-console.log( dogsEatingOkay);
+console.log(dogsEatingOkay);
 
 // Task 8
 const dogsSorted = dogs.slice().sort((a, b) => a.recommendedFood - b.recommendedFood);
